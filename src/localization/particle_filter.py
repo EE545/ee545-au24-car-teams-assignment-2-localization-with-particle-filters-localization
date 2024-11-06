@@ -342,6 +342,8 @@ class ParticleFilter:
 
             delta_off, delta_rot = utils.transform_stamped_to_pq(odom_to_laser)
 
+            pa[2] += np.pi
+
             # Transform offset to be w.r.t the map
             off_x = delta_off[0] * np.cos(pa[2]) - delta_off[1] * np.sin(pa[2])
             off_y = delta_off[0] * np.sin(pa[2]) + delta_off[1] * np.cos(pa[2])

@@ -179,7 +179,7 @@ class LaserScanSensorModelROS:
         if self.laser_angles is None:
             self.laser_angles = np.linspace(
                 msg.angle_min, msg.angle_max, len(msg.ranges)
-            )
+            ) + np.pi
 
         if not self.initialized:
             return
