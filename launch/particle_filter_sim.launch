@@ -12,6 +12,7 @@
     <include file="$(find localization)/launch/include/particle_filter.xml">
         <arg name="publish_tf" value="$(arg publish_tf)" />
         <arg name="tf_prefix" value="$(arg tf_prefix)" />
+        <arg name="flip_lidar" value="$(arg flip_lidar)"/>
     </include>
     </group>
     <include file="$(find localization)/launch/include/particle_filter.xml" unless="$(arg use_namespace)">
