@@ -11,7 +11,7 @@
     <arg name="initial_x" default="NaN"/>
     <arg name="initial_y" default="NaN"/>
     <arg name="initial_theta" default="NaN"/>
-    <arg name="flip_lidar" default="True"/>
+    <arg name="flip_lidar" default="False"/>
 
     <node pkg="localization" type="particle_filter_node" name="particle_filter" output="screen">
         <param name="publish_tf" value="$(arg publish_tf)" />
