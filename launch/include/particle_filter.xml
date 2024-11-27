@@ -25,7 +25,7 @@
         <param name="initial_x" value="$(arg initial_x)"/>
         <param name="initial_y" value="$(arg initial_y)"/>
         <param name="initial_theta" value="$(arg initial_theta)"/>
-        <param name="flip_lidar" default="$(arg flip_lidar)"/>
+        <param name="flip_lidar" value="$(arg flip_lidar)"/>
         <remap from="servo_state" to="vesc/sensors/servo_position_command" />
         <rosparam command="load" file="$(find localization)/config/parameters.yaml" />
     </node>
