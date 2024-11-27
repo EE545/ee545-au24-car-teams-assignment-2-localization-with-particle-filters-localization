@@ -90,6 +90,7 @@ class ParticleFilter:
             "speed_to_erpm_gain",
             "steering_to_servo_offset",
             "steering_to_servo_gain",
+            "flip_lidar",
         }
         if not required_keyword_args.issubset(set(kwargs)):
             raise ValueError("A required keyword argument is missing")
@@ -164,6 +165,7 @@ class ParticleFilter:
                 "exclude_max_range_rays",
                 "max_range_meters",
                 "car_length",
+                "flip_lidar",
             )
         }
         sensor_model_worker_params["map_msg"] = map_msg
@@ -342,7 +344,8 @@ class ParticleFilter:
 
             delta_off, delta_rot = utils.transform_stamped_to_pq(odom_to_laser)
 
-            pa[2] += np.pi
+            if self.flip_lidar:
+                pa[2] += np.pi
 
             # Transform offset to be w.r.t the map
             off_x = delta_off[0] * np.cos(pa[2]) - delta_off[1] * np.sin(pa[2])

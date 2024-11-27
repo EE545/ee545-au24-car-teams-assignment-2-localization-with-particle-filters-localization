@@ -125,6 +125,7 @@ class LaserScanSensorModelROS:
             "max_range_meters",
             "map_msg",
             "car_length",
+            "flip_lidar",
         }
         if not required_keyword_args.issubset(set(kwargs)):
             raise ValueError("Missing required keyword argument")
@@ -179,7 +180,9 @@ class LaserScanSensorModelROS:
         if self.laser_angles is None:
             self.laser_angles = np.linspace(
                 msg.angle_min, msg.angle_max, len(msg.ranges)
-            ) + np.pi
+            ) 
+            if self.flip_lidar:
+                self.laser_angles += np.pi
 
         if not self.initialized:
             return

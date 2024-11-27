@@ -27,6 +27,7 @@ if __name__ == "__main__":
             rospy.get_param("vesc/steering_angle_to_servo_gain", -1.2135)
         ),
         "use_map_topic": bool(rospy.get_param("~use_map_topic", False)),
+        "flip_lidar": bool(rospy.get_param("~flip_lidar", True))
     }
     sensor_params = rospy.get_param("~sensor_params")
     motion_params = rospy.get_param("~motion_params")

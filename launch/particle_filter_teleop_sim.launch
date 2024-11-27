@@ -6,6 +6,7 @@
     <arg name="initial_theta" default="NaN"/>
     <arg name="fake_localization" default="false" />
     <arg name="rviz" default="true" />
+    <arg name="flip_lidar" default="True"/>
 
     <include file="$(find ee545)/launch/teleop.launch">
         <arg name="fake_localization" value="$(arg fake_localization)" />
@@ -21,6 +22,7 @@
             <arg name="initial_x" value="$(arg initial_x)"/>
             <arg name="initial_y" value="$(arg initial_y)"/>
             <arg name="initial_theta" value="$(arg initial_theta)"/>
+            <arg name="flip_lidar" value="$(arg flip_lidar)"/>
         </include>
     </group>
 
